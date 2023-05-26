@@ -115,7 +115,7 @@ const Eproduct = () => {
       products.map((p)=>{
         return (
             <SwiperSlide key={p.productName}>
-            <div className='flex'>
+            <div className='flex gap-1'>
             <Image src={p.imgPath} alt={p.productName}></Image>
             </div>
             <p className='font-bold'>{p.productName}</p>
