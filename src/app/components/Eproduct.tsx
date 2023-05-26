@@ -105,7 +105,7 @@ const Eproduct = () => {
   return (
 <>
     <Swiper
-    spaceBetween={50}
+    spaceBetween={5}
     slidesPerView={3}
     onSlideChange={() => console.log('slide change')}
     onSwiper={(swiper) => console.log(swiper)}
