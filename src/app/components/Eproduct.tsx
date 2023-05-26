@@ -14,6 +14,7 @@ import img11 from '../assets/images/products/img11.png'
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
+import Wrapper from './Shared/Wrapper'
 
 
 type product = {
@@ -39,10 +40,12 @@ const products: product[] = [
         imgPath: img2
     },
     {
-        productName: 'Flex Sweatshirt',
-        price: 195,
+        
+        productName: 'Muscle Tank',
+        price: 75,
         currency: '$',
-        imgPath: img3
+        imgPath: img10
+        
     },
     {
         productName: 'Brushed Raglan Sweatshirt',
@@ -81,10 +84,10 @@ const products: product[] = [
         imgPath: img9
     },
     {
-        productName: 'Muscle Tank',
-        price: 75,
+        productName: 'Flex Sweatshirt',
+        price: 195,
         currency: '$',
-        imgPath: img10
+        imgPath: img3
     },
     {
         productName: 'Brushed Bomber',
@@ -104,29 +107,37 @@ const products: product[] = [
 const Eproduct = () => {
   return (
 <>
-    <Swiper
-    spaceBetween={5}
-    slidesPerView={3}
-    onSlideChange={() => console.log('slide change')}
-    onSwiper={(swiper) => console.log(swiper)}
-  >
+<Wrapper>
+  
+  <div className="text-center mt-36">
+  <p className='text-blue-700 font-bold'>PRODUCTS</p>
+  <h1 className='text-3xl font-bol'>Check What We Have</h1>
+  </div>
+    <Swiper className='mt-10'
+       slidesPerView={3}>
     {
     
-      products.map((p)=>{
-        return (
+      products.map((p)=>(
+                     
             <SwiperSlide key={p.productName}>
-            <div className='flex gap-1'>
-            <Image src={p.imgPath} alt={p.productName}></Image>
+         <div className='hover:scale-110 transition delay-300 duration-300 ease-in-out'>
+            <div className='flex gap-1 '>
+            <Image src={p.imgPath} alt={p.productName} width={380} height={400}></Image>
             </div>
             <p className='font-bold'>{p.productName}</p>
             <p className='font-bold'>{p.currency} {p.price}</p>
+            </div>
             
             </SwiperSlide>
+           
+            
+            
         )
-      })  
+      )  
     
     }
-  </Swiper>
+     </Swiper>
+  </Wrapper>
     </>
   )
 }
