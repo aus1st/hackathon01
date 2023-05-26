@@ -3,6 +3,7 @@ import Wrapper from './Shared/Wrapper'
 import Logo from '../../../public/Logo.webp'
 import Image from 'next/image'
 import {  FaCartPlus } from "react-icons/fa";
+import Link from 'next/link'
 
 const Nav = () => {
   return (
@@ -14,10 +15,11 @@ const Nav = () => {
         </div>
 
         <ul className='flex space-x-10 font-medium items-center'>
-            <li>Female</li>
-            <li>Male</li>
-            <li>Kids</li>
-            <li>All Products</li>
+            <Link href={"/Female"}>Female</Link>
+            <Link href={"/Male"}>Male</Link>
+            <Link href={"/Kids"}>Kids</Link>
+            <Link href={"/Products"}>All Products</Link>
+           
             <li>
             <div className="relative text-gray-600 focus-within:text-gray-400">
             <span className="absolute inset-y-0 left-0 flex items-center pl-2">
