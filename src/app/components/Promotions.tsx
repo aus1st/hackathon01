@@ -16,12 +16,13 @@ const Promotions = () => {
         </div>
 
         {/* Promotions */}
-        <div className="flex mt-5 gap-x-5">
-          <div className="w-9/12 flex-row">
+        <div className="flex mt-5 justify-center gap-x-3">
+          <div className="w-6/12 flex-row">
             <div className="bg-gray-300 flex justify-around items-center">
-              <div className="flex flex-col">
-                <h3 className="text-3xl font-bold">GET UPTO 60%</h3>
-                <p className="mt-3">For the summer season</p>
+              <div className="flex flex-col ml-4">
+                <h3 className="text-3xl font-bold">GET UPTO </h3>
+                <span className="text-5xl font-bold">60%</span>
+                 <p className="mt-1">For the summer season</p>
               </div>
               <div>
                 <Image src={event1} alt="promotion image"></Image>
@@ -31,18 +32,42 @@ const Promotions = () => {
               <h3 className="text-3xl font-bold mt-3">GET 30% Off</h3>
               <p className="">USE PROMO CODE</p>
               <button className="bg-gray-600 w-72 py-3 rounded-md">
-                DINE WEEKEND SALE
+                DINEWEEKENDSALE
               </button>
             </div>
           </div>
-          <div className="w-3/12 flex">
+          <div className="w-6/12 flex gap-3 justify-center">
             <div className="bg-[#efe1c7]">
+
+            <div className="flex flex-col p-3">
+              <div>
+                <p>Flex Sweatshirt</p>
+              </div>
+              <div className="flex gap-x-3">
+                <p className="line-through">$100.00 </p>
+                <span className="font-bold">$75.00</span>
+              </div>
+             
+              </div>
               <Image src={event2} alt="promotion2 image"></Image>
             </div>
-          </div>
-          <div className="bg-gray-200">
+            <div className="bg-gray-200">
+
+            <div className="flex flex-col p-3">
+              <div>
+                <p>Flex Push Button Bomber</p>
+              </div>
+              <div className="flex gap-x-3">
+                <p className="line-through">$225.00 </p>
+                <span className="font-bold">$190.00</span>
+              </div>
+              
+             
+              </div>
               <Image src={event3} alt="promotion3 image"></Image>
             </div>
+          </div>
+          
         </div>
       </Wrapper>
     </section>
