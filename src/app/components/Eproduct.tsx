@@ -113,19 +113,19 @@ const Eproduct = () => {
   <p className='text-blue-700 font-bold'>PRODUCTS</p>
   <h1 className='text-3xl font-bol'>Check What We Have</h1>
   </div>
-    <Swiper className='mt-10'
-       slidesPerView={3}>
+    <Swiper  slidesPerView={3} className='sm:mt-10 mt-5'
+       >
     {
     
-      products.map((p)=>(
-                     
-            <SwiperSlide key={p.productName}>
+      products.map((p,i)=>(
+    
+            <SwiperSlide key={`${p.productName}_${i}`}>
          <div className='hover:scale-110 transition delay-300 duration-300 ease-in-out'>
-            <div className='flex gap-1 '>
+            <div className='flex sm:gap-x-2 gap-x-3 '>
             <Image src={p.imgPath} alt={p.productName} width={380} height={400}></Image>
             </div>
-            <p className='font-bold'>{p.productName}</p>
-            <p className='font-bold'>{p.currency} {p.price}</p>
+            <p className='sm:font-bold text-sm'>{p.productName}</p>
+            <p className='sm:font-bold text-sm'>{p.currency} {p.price}</p>
             </div>
             
             </SwiperSlide>

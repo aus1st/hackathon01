@@ -11,9 +11,9 @@ const Footer = () => {
     <div>
       
       {/* above footer */}
-        <div className='flex gap-x-24 mt-20 text-gray-500'>
-            <div className='w-4/12'>
-            <Image src={Logo} width={140} height={25} alt="logo"></Image>
+        <div className='flex sm:flex-row flex-col sm:align-center gap-x-24 mt-20 text-gray-500'>
+            <div className='sm:w-4/12 w-full'>
+            <Image src={Logo} width={155} height={35} alt="logo"></Image>
             <p className='mt-10 text-gray-500'>Small, artisan label that offers a thoughtfully curated collection of high quality everyday essentials made.</p>
 
             <ul className='flex gap-x-3 mt-5 font-black'>
@@ -32,7 +32,7 @@ const Footer = () => {
             </div>
 
 
-            <div className='w-2/12 '>
+            <div className='sm:w-2/12 w-full '>
                <h4 className='font-bold text-lg '>Company</h4> 
                 <ul className='space-y-3 font-medium mt-3'>
                     <li>About</li>
@@ -43,7 +43,7 @@ const Footer = () => {
                 </ul>
 
             </div>
-            <div className='w-2/12'> 
+            <div className='sm:w-2/12 w-full'> 
             <h4 className='font-bold text-lg '>Support</h4> 
                 <ul className='space-y-3 font-medium mt-3'>
                     <li>Support Carrer</li>
@@ -51,7 +51,7 @@ const Footer = () => {
                     <li>Quick Chat</li>
                     
                 </ul></div>
-            <div className='w-2/12'> <ul className='space-y-3 font-medium mt-3'>
+            <div className='sm:w-2/12 w-full'> <ul className='space-y-3 font-medium mt-3'>
             <h4 className='font-bold text-lg '>Contact</h4>
                     <li>WhatsApp</li>
                     <li>24h Service</li>
@@ -67,7 +67,7 @@ const Footer = () => {
     </Wrapper>
 
 {/* copyright */}
-<div className='grid grid-cols-3 border-t text-center border-black mt-10 p-4'>
+<div className='grid sm:grid-cols-3 grid-cols-1 border-t text-center border-black mt-10 p-4'>
 <div>Copyright © 2022 Dine Market</div>
 <div>Design by. <b>Weird Design Studio</b></div>
 <div>Code by. <b>aus1st on github</b></div>

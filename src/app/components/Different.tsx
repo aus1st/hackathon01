@@ -25,22 +25,29 @@ const data = [
 const Different = () => {
     const backgroundText = "Different \nfrom \nothers"
   return (
-    <section>    <Wrapper>
-      <div className="flex gap-20 mt-10 items-center">
+    <section>    
+      <Wrapper>
+      <div className="flex sm:flex-row flex-col gap-20 mt-10 items-center">
         {/* left */}
-        <div className="relative grid grid-rows-4 w-5/12 gap-y-3 grid-flow-col">
+        <div className="relative grid grid-cols-2 sm:gap-10 gap-10  sm:w-5/12 w-full gap-y-10 sm:gap-y-16 ">
           {data.map((d) => (
-            <>
+            <div key={d.heading}>
               <h3 className="font-bold" key={d.heading}>
                 {d.heading}
               </h3>
               <span>{d.content}</span>
-            </>
+              
+            </div>
+            
           ))}
         </div>
-        <div className="absolute text-[100px] text-gray-100 leading-[100px] whitespace-pre-line -z-10 font-bold ">{backgroundText}</div>
+        <div className="absolute sm:text-[100px] text-[80px] 
+                      text-gray-100 sm:leading-[100px] 
+        whitespace-pre-line -z-10 font-bold ">
+          {backgroundText}
+          </div>
         {/* right */}
-        <div className="flex gap-8 w-7/12 items-center">
+        <div className="flex gap-8 sm:w-7/12 w-full sm:flex-row flex-col items-center">
           {/* image */}
           <Image src={featureImg} width={350} height={300} alt="feature Image"></Image>
           {/* content */}

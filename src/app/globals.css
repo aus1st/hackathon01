@@ -1,3 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+.swiper-container {
+    width: 480px;
+
+}
+

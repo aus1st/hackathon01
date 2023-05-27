@@ -5,8 +5,8 @@ const Jewellry = () => {
     const jewl = "Unique and Authentic \nVintage Designer \nJewellery"
   return (
     <Wrapper>
-    <div className='flex justify-end mt-20 mr-4'>
-      <h1 className="text-4xl font-bold leading-20  whitespace-pre-line">
+    <div className='flex justify-end mt-10 mr-4'>
+      <h1 className="sm:text-4xl text-3xl font-bold sm:leading-20 leading-10  sm:whitespace-pre-line">
         {jewl}
       </h1>
     </div>

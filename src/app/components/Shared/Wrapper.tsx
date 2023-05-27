@@ -2,7 +2,7 @@ import {FC} from 'react'
 
 const Wrapper: FC<{children: React.ReactNode}> = ({children}) => {
   return (
-    <div className="max-w-screen-xl mx-auto px-2">
+    <div className="max-w-screen-xl mx-auto p-10">
       {children}
     </div>
   )
