@@ -11,11 +11,11 @@ import ProductImage from "./ProductImage";
 const Eproduct = async () => {
   const products: IProduct[] = await getProductData();
   return (
-  
+    <>
       <Wrapper>
         <div className="text-center mt-36">
           <p className="text-blue-700 font-bold">PRODUCTS</p>
-          <h1 className="text-3xl font-bol">Check What We Have</h1>
+          <h1 className="text-3xl font-bold">Check What We Have</h1>
         </div>
         <div className="flex gap-4 sm:mt-10 mt-5">
         {/* <Swiper slidesPerView={3} className="sm:mt-10 mt-5"> */}
@@ -27,6 +27,7 @@ const Eproduct = async () => {
         {/* </Swiper> */}
         </div>
       </Wrapper>
+      </>
      
   );
 };

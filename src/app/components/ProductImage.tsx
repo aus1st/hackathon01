@@ -26,7 +26,7 @@ const ProductImage:FC<{product:IProduct}> =  ({product}) => {
     //const products : IProduct[] = await getProductData();
     // console.log(products[0].image);
     return (
-              
+              <>
                <div className='hover:scale-110 transition delay-300 duration-300 ease-in-out'>
                 <div className='flex sm:gap-x-2 gap-x-3 '>
                 <Image src={urlFor(product.image).url()} alt={product.title} width={380} height={400}></Image>
@@ -34,6 +34,7 @@ const ProductImage:FC<{product:IProduct}> =  ({product}) => {
                 <p className='sm:font-bold text-sm'>{product.title}</p>
                 <p className='sm:font-bold text-sm'>$ {product.price}</p>
                 </div>
+                </>
                  
     )
 

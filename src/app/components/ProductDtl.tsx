@@ -55,24 +55,20 @@ const ProductDtl:FC<{product: IProduct}> = ({product}) => {
     <div className='relative flex sm:flex-row flex-col mt-20'>
       <h4 className='text-3xl font-semibold sm:font-bold'>Product Information</h4>
       <div className='absolute sm:text-[130px] text-[55px] sm:-top-20 -top-5 -z-10 font-bold text-gray-100'>Overview</div>
-      <div className='mt-20 border-t-gray-400 border'></div>  
+       
       
-      <div className='flex gap-x-6 p-5'>
+      
+      
+    </div>
+    <div className='mt-20 border-t-gray-400 border'></div>
+    <div className='flex gap-x-6 p-5'>
         <div className='w-4/12 font-bold text-xl text-gray-500'>Product Details</div>
         <div className='w-8/12'>{product.details}</div>
         </div>
-
-        <div className='flex gap-x-6 p-5 items-center'>
+    <div className='flex gap-x-6 p-5 items-center'>
         <div className='w-4/12 font-bold text-xl text-gray-500'>Product Care</div>
         <div className='w-8/12'>{product.details.substring(0,50)}</div>
         </div>
-
-
-       
-
-      
-
-    </div>
     
     </Wrapper>
   )
