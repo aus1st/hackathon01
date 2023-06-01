@@ -14,6 +14,7 @@ export default function Home() {
 
     <Hero/>
     <Promotions/>
+     {/* @ts-expect-error Server Component */}
     <Eproduct/>
     <Jewellry/>
 <Different/>
