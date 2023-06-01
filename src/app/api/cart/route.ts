@@ -30,7 +30,7 @@ export async function GET(requet: NextRequest) {
 export async function POST(requet: NextRequest) {
 
   const req = await requet.json();
-  const {product_id,quantity,price}:ICart = req;
+  const {product_id,quantity,price,size}:ICart = req;
   console.log('request received at API')
   console.log(req)
 const cookie = cookies();
@@ -47,7 +47,8 @@ if(!user_id) {
         user_id: user_id,
         product_id: product_id,
         quantity: quantity,
-        price: price
+        price: price,
+        size: size
         
       }).returning();
     console.log('response:',res)

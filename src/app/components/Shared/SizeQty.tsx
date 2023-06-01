@@ -31,7 +31,7 @@ const SizeQty:FC<{product_id: string, price: number}> = ({product_id,price}) => 
           product_id: product_id,
           price: price,
           quantity: qty,
-          size: size
+          size:size
       })
   })
   
@@ -44,9 +44,11 @@ const SizeQty:FC<{product_id: string, price: number}> = ({product_id,price}) => 
   
   }
   
-const selectSize = (s: string) => {
-
-  setSize(size);
+const selectSize = (b:string) => {
+  //console.log(s);   
+  setSize(b);
+  
+ 
 }
 
   const adjustQty = (opr: string) => {
@@ -64,7 +66,7 @@ const selectSize = (s: string) => {
       <h3 className="font-bold text-lg text-gray-600 mt-5">Select Size</h3>
       <div className="flex gap-x-3 mt-5 justify-center items-center">
         {sizes.map((b) => (
-          <button onClick={()=>setSize(b)}
+          <button value={b}  onClick={()=>selectSize(b)}
             className="shrink-0  hover:bg-white focus:bg-gray-200 hover:shadow-xl font-bold text-gray-500 rounded-full p-3 "
             key={b}
           >
