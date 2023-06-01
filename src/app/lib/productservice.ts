@@ -25,9 +25,12 @@ export const productData = async ()=>{
 
 
 export const getProductDataByGender = async (gender:string)=>{
-    const res = await client.fetch(`*[_type=='product' && category == '${gender}'] {
-        _id,title,description,image,price,details
-    }`)
+    const res = await client.fetch(`*[_type=='product' && category->name ==$gender] {
+        _id,title,description,image,price,details,category->{
+            _id,
+            name
+        }
+    }`,{gender: gender})
     return res;
 }
 

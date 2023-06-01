@@ -6,7 +6,7 @@ import Wrapper from "../components/Shared/Wrapper";
 import Link from "next/link";
 
 const page = async () => {
-  const data: IProduct[] = await getProductDataByGender("f");
+  const data: IProduct[] = await getProductDataByGender("Female");
 
   return (
     <Wrapper>

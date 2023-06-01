@@ -5,7 +5,7 @@ import ProductImage from '../components/ProductImage';
 import Wrapper from '../components/Shared/Wrapper';
 
 const page = async () => {
-    const data:IProduct[] =  await getProductDataByGender('m');
+    const data:IProduct[] =  await getProductDataByGender('Male');
     
     return (
         <Wrapper>
