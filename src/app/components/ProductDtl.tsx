@@ -16,6 +16,9 @@ const urlFor = (source:any)=>{
 }
 
 
+
+
+
 const ProductDtl:FC<{product: IProduct}> = ({product}) => {
     console.log(product.price)
   return (
@@ -42,7 +45,7 @@ const ProductDtl:FC<{product: IProduct}> = ({product}) => {
     
     {/* size and qty select  */}
     <div>
-    <SizeQty price={product.price}></SizeQty>
+    <SizeQty product_id={product._id} price={product.price} ></SizeQty>
     </div>
     
     </div>

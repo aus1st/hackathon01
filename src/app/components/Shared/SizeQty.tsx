@@ -1,14 +1,53 @@
 "use client";
+import { ICart } from "@/app/lib/product";
 import React, { FC } from "react";
 import { useState } from "react";
 import { set } from "sanity";
+import toast, {Toaster} from 'react-hot-toast'
 
 const sizes = ["XS", "S", "M", "L", "XL"];
 
-const SizeQty:FC<{price: number}> = ({price}) => {
+const SizeQty:FC<{product_id: string, price: number}> = ({product_id,price}) => {
+
+  const notify = (msg:string) => toast.success(msg,{
+    duration: 4000,
+    position: "top-center"
+  }); 
+
+  const notifyError = (msg:string) => toast.error(msg,{
+    duration: 4000,
+    position: "top-center"
+  }); 
 
   const [qty, setQty] = useState(1);
   const [size, setSize] = useState("");
+
+  const handleSubmit = async ()=>{
+   
+   try {
+    const res = await fetch('/api/cart',{
+      method: 'POST',    
+      body: JSON.stringify({
+          product_id: product_id,
+          price: price,
+          quantity: qty,
+          size: size
+      })
+  })
+  
+  return res;    
+   } catch (error) {
+      console.log(error)
+      notifyError('something went wrong')
+   }
+
+  
+  }
+  
+const selectSize = (s: string) => {
+
+  setSize(size);
+}
 
   const adjustQty = (opr: string) => {
     console.log(opr);
@@ -23,10 +62,10 @@ const SizeQty:FC<{price: number}> = ({price}) => {
   return (
     <div>
       <h3 className="font-bold text-lg text-gray-600 mt-5">Select Size</h3>
-      <div className="flex gap-x-4 mt-5 justify-center items-center">
+      <div className="flex gap-x-3 mt-5 justify-center items-center">
         {sizes.map((b) => (
-          <button
-            className="hover:bg-white hover:shadow-xl shrink-0 font-bold justify-center text-gray-500 rounded-full py-3 px-3"
+          <button onClick={()=>setSize(b)}
+            className="shrink-0  hover:bg-white focus:bg-gray-200 hover:shadow-xl font-bold text-gray-500 rounded-full p-3 "
             key={b}
           >
              {b}
@@ -52,10 +91,10 @@ const SizeQty:FC<{price: number}> = ({price}) => {
       </div>
 
        <div className="flex mt-10 gap-x-3 items-center">
-        <button className="bg-black text-white sm:py-2 sm:px-5 py-1 px-4">🛒 Add to Card</button>
+        <button onClick={()=>{handleSubmit(), notify('Product Added')}} className="bg-black text-white sm:py-2  sm:px-5 py-1 px-4">🛒 Add to Card</button>
         <h3 className="sm:text-3xl text-xl font-bold">$ {price}</h3>
         </div>   
-
+        <Toaster/>  
     </div>
   );
 };
