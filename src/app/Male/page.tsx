@@ -9,7 +9,7 @@ const page = async () => {
     
     return (
         <Wrapper>
-    <div className='flex sm:flex-row flex-col gap-x-3 flex-wrap'>
+ <div className="grid grid-cols-4 gap-x-3 justify-center gap-y-3">
       {        
                  data.map(p=>(
                 <ProductImage product={p} key={p._id}></ProductImage>
