@@ -24,8 +24,9 @@ export async function GET(requet: NextRequest) {
         .select()
         .from(cartTable)
         .where(eq(cartTable.user_id, user_id as string));
-      console.log(res)
-      return NextResponse.json({ res });
+      //console.log(res)
+      
+      return NextResponse.json(res);
     } catch (error) {
       return NextResponse.json({ Error: "something went wrong" });
     }
