@@ -2,6 +2,7 @@
 import { s } from "drizzle-orm/query-promise.d-afecc38e";
 import React, { FC, useState } from "react";
 import CheckOut from "../CheckOut";
+import { useRouter } from "next/navigation";
 
 export const AddLessBtns: FC<{ price?: number; title?: string,product_id: string }> = ({
   price,
@@ -11,6 +12,7 @@ export const AddLessBtns: FC<{ price?: number; title?: string,product_id: string
   const [qty, setQty] = useState(1);
   const [amount, setAmount] = useState(price);
   const [total, setTotal]= useState(amount);
+  const {refresh} = useRouter()
 
   const adjustTotal = () => {
     // console.log('adjust amount called')
@@ -32,7 +34,8 @@ export const AddLessBtns: FC<{ price?: number; title?: string,product_id: string
        })
    })
    
-   return res;    
+   console.log(res);
+   refresh();    
     } catch (error) {
        console.log(error)
        //notifyError('something went wrong')

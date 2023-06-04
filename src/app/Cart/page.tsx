@@ -28,6 +28,8 @@ const urlFor = (source: any) => {
 let productQnty = 0;
 
 
+
+
 const getcartData = async () => {
   const cookie = cookies();
   const user_id = cookie.get('user_id')?.value as string;
@@ -73,7 +75,19 @@ const Page = async () => {
   const products: IProduct[] = await getAllProducts();
   
   const cartDtls:ICart[] = await getcartData();
+  let total = 0;
+  const amount = ()=>{
   
+    cartDtls.map(a=>{
+      total+= a.price * a.quantity
+    })
+    return total;
+  }
+
+  const qty = cartDtls.map(q=>q.quantity).reduce((accumulator: number, input: number): number =>accumulator+input);
+
+
+
   const orderDtls = cartDtls?.map((c) => {
     const x = products.find((p) => p._id == c.product_id);
     return (
@@ -110,8 +124,8 @@ const Page = async () => {
         <div className="flex flex-col gap-x-25 gap-y-5">{orderDtls}</div>
         <div>
           {productQnty}     
-           {/* @ts-expect-error Server Component */}
-          <CheckOut/>
+
+          <CheckOut qty={qty} total={total}/>
         </div>
       </div>
     </Wrapper>
