@@ -81,7 +81,7 @@ const Nav = () => {
                     />
                   </div>
                 </li>
-                <a href="/Cart">
+                <Link href="/Cart">
                 <li>
                   <div className="p-3 relative bg-gray-100 rounded-full hover:scale-125 duration-300">
                     <svg
@@ -115,7 +115,7 @@ const Nav = () => {
                     </span>
                   </div>
                 </li>
-                </a>
+                </Link>
               </ul>
             </div>
           </div>

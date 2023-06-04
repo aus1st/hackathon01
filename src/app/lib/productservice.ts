@@ -49,3 +49,12 @@ export const getAllProducts = async ()=>{
     }`)
     return res;
 }
+
+// export const getAllProductData = async ()=>{
+//     const res = await client.fetch(`*[_type=='product']{
+//         _id,title,description,image,price
+//     }`);
+//     //console.log(res)
+//     return res;
+//   }
+  
