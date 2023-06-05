@@ -24,7 +24,7 @@ export async function GET(requet: NextRequest) {
         .select()
         .from(cartTable)
         .where(eq(cartTable.user_id, user_id as string));
-      //console.log(res)
+      console.log(res)
       
       return NextResponse.json(res);
     } catch (error) {
@@ -95,6 +95,28 @@ export async function PUT(requet: NextRequest) {
       size: size
 
     }).where(and(eq(cartTable.user_id, user_id as string), eq(cartTable.product_id, product_id)))
+    .returning();
+    console.log('response:', res)
+    return NextResponse.json({ res });
+
+  } catch (error) {
+    return NextResponse.json({ Error: "something went wrong" });
+  }
+
+}
+
+
+
+export async function DELETE(requet: NextRequest) {
+
+  const { searchParams } = new URL(requet.url);
+  console.log('Request from Client', searchParams)
+  const ID:number = <number><unknown>searchParams.get('ID');
+  console.log(`${ID} delete request received at API`)
+    
+  try {
+    console.log('sending delete request to db')
+    const res = await db.delete(cartTable).where(eq(cartTable.id, ID))
     .returning();
     console.log('response:', res)
     return NextResponse.json({ res });

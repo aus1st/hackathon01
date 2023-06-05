@@ -8,7 +8,8 @@ export interface IProduct  {
 }
 
 export interface ICart {
-    id?: string,
+    id: number
+    //id?: string,
     product_id: string,
     quantity: number,
     price: number,

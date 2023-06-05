@@ -2,8 +2,6 @@
 
 import Image from "next/image";
 
-import { Image as IImage } from "sanity";
-
 import Wrapper from "../components/Shared/Wrapper";
 
 import { cookies } from "next/dist/client/components/headers";
@@ -15,7 +13,7 @@ import imageUrlBuilder from "@sanity/image-url";
 import { IProduct } from "../lib/product";
 
 import CheckOut from "../components/CheckOut";
-import  { DeleteBtn,AddLessBtns,Amount } from "../components/Shared/AddLessBtns";
+import  { AddLessBtns } from "../components/Shared/AddLessBtns";
 import { P } from "drizzle-orm/db.d-89e25221";
 
 import * as cartService from '../lib/cartService'
@@ -25,9 +23,6 @@ const builder = imageUrlBuilder(client);
 const urlFor = (source: any) => {
   return builder.image(source);
 };
-
-//const fetcher = (url: string) => fetch(url).then(res=> res.json());
-let productQnty = 0;
 
 
 
@@ -39,13 +34,10 @@ const getcartData = async () => {
   if (user_id) {
     try {
       console.log("calling api");
-     
-     
       const data = await fetch(
         `http://localhost:3000/api/cart?user_id=${user_id}`
       );
-      
-      
+           
       return await data.json();
       
     } catch (error) {
@@ -58,32 +50,32 @@ const getcartData = async () => {
 
 const Page = async () => {
 
-
   const products: IProduct[] = await getAllProducts();
-  
   const cartDtls:ICart[] = await getcartData();
-  // let total = 0;
+  let total = 0;
+  let qty =0;
 
   //add to collection to mainuplate efficiently
-  cartService.addToCart(cartDtls); 
-  const cartItems = cartService.getCartItems();
+  // cartService.addToCart(cartDtls); 
+  // const cartItems = cartService.getCartItems();
 
-  // const amount = ()=>{
+  const amount = ()=>{
   
-  //   cartItems.forEach(a=>{
-  //     total+= a.price * a.quantity
-  //   })
-  //   return total;
-  // }
-  // amount();
-  //const qty = cartDtls.map(q=>q.quantity).reduce((accumulator: number, input: number): number =>accumulator+input);
-  //const qty = cartItems.map(q=>q.quantity).reduce((accumulator: number, input: number): number =>accumulator+input);
+    cartDtls.forEach(a=>{
+      total+= a.price * a.quantity
+    })
+  console.log(total)
+    return total;
+  }
+   amount();
+  const calculateQty = () => { 
+  cartDtls.forEach(q=> qty+=q.quantity)
+  return qty;
+  }
+ calculateQty();
 
- 
-
-
-  //const orderDtls = cartDtls?.map((c) => {
-    const orderDtls = cartItems.map((c) => {
+  const orderDtls = cartDtls?.map((c) => {
+  //  const orderDtls = cartItems.map((c) => {
     const x = products.find((p) => p._id == c.product_id);
     return (
       <div key={c.id}>
@@ -100,12 +92,8 @@ const Page = async () => {
 
           <div className="flex flex-col space-y-3 justify-around w-full">
           
-          <AddLessBtns id={c.id} price={x?.price} title={x?.title} product_id={x?._id as string}/>
+          <AddLessBtns price={x?.price} title={x?.title} product_id={x?._id as string} _qty={c.quantity} ID={c.id}/>
         </div>
-          {/* controls */}
-          {/* <div className="flex sm:flex-col flex-row justify-around sm:items-center items-center">
-        
-          </div> */}
         </div>
       </div>
     );
@@ -118,9 +106,7 @@ const Page = async () => {
       <div className="flex sm:flex-row mt-5 flex-col gap-5 justify-between">
         <div className="flex flex-col gap-x-25 gap-y-5">{orderDtls}</div>
         <div>
-          {productQnty}     
-
-          <CheckOut />
+        <CheckOut qty={qty} total={total} />
         </div>
       </div>
     </Wrapper>
