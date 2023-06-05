@@ -3,11 +3,14 @@ import { s } from "drizzle-orm/query-promise.d-afecc38e";
 import React, { FC, useState } from "react";
 import CheckOut from "../CheckOut";
 import { useRouter } from "next/navigation";
+import * as cartService from '../../lib/cartService'
+import { Tracing } from "trace_events";
 
-export const AddLessBtns: FC<{ price?: number; title?: string,product_id: string }> = ({
+export const AddLessBtns: FC<{ id?: string, price?: number; title?: string,product_id: string }> = ({
   price,
   title,
-  product_id
+  product_id,
+  id
 }) => {
   const [qty, setQty] = useState(1);
   const [amount, setAmount] = useState(price);
@@ -51,7 +54,7 @@ export const AddLessBtns: FC<{ price?: number; title?: string,product_id: string
     if (opr == "-") {
       if (qty > 1) {
         setQty((s) => s - 1);
-        handleSubmit(qty);
+        //handleSubmit(qty);
         setAmount((a) =>
           a == undefined ? 0 : a - (price == undefined ? 0 : price)
         );
@@ -63,7 +66,8 @@ export const AddLessBtns: FC<{ price?: number; title?: string,product_id: string
       }
     } else if (opr == "+") {
       setQty((s) => s + 1);
-      handleSubmit(qty);
+      //handleSubmit(qty);
+      cartService.updateCart(id as string,qty)
       setAmount((a) =>
         a == undefined ? 0 : a + (price == undefined ? 0 : price)
       );

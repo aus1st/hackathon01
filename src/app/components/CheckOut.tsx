@@ -2,11 +2,26 @@
 
 import { cookies } from "next/dist/client/components/headers";
 import React, { FC } from "react";
+import * as cartService from '../lib/cartService';
+
+const cartItems = cartService.getCartItems();
+console.log(cartItems)
+let total= 0;
+  const amount = ()=>{
+  
+    cartItems.forEach(a=>{
+      total+= a.price * a.quantity
+    })
+    return total;
+  }
+  amount();
+  //const qty = cartDtls.map(q=>q.quantity).reduce((accumulator: number, input: number): number =>accumulator+input);
+  const qty = 0;//artItems.map(q=>q.quantity).reduce((accumulator: number, input: number): number =>accumulator+input);
 
 
 
-
-const CheckOut:FC<{qty: number, total: number}> =  ({qty, total}) => {
+// const CheckOut:FC<{qty: number, total: number}> =  ({qty, total}) => {
+  const CheckOut =  () => {
   // const cookie = cookies();
   // const user_id = cookie.get('user_id')?.value as string;
   // console.log(user_id)
