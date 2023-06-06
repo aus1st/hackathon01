@@ -44,7 +44,7 @@ const PaymentForm = async () => {
              <div>
       <form onSubmit={onSubmit}>
         <CardElement/>
-        <button className='p-3 bg-blue-700 text-white' type='submit'>Submit</button>
+        <button className='p-3 rounded-md bg-blue-700 text-white' type='submit'>Submit</button>
       </form>
       </div>
       </Wrapper>
