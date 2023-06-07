@@ -1,10 +1,10 @@
 "use client";
 import { s } from "drizzle-orm/query-promise.d-afecc38e";
 import React, { FC, useState } from "react";
-import CheckOut from "../CheckOut";
+
 import { useRouter } from "next/navigation";
-import * as cartService from '../../lib/cartService'
-import { Tracing } from "trace_events";
+
+
 import toast, {Toaster} from 'react-hot-toast'
 import { FaCartPlus } from "react-icons/fa";
 

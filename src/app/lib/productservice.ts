@@ -12,9 +12,12 @@ const urlFor = (source:any)=>{
 
 
 export const getProductData = async ()=>{
-    const res = await client.fetch(`*[_type=='product'][0..2]{
+    const res = await client.fetch(`*[_type=='product']{
         _id,title,description,image,price
     }`);
+    // const res = await client.fetch(`*[_type=='product'][0..2]{
+    //     _id,title,description,image,price
+    // }`);
     return res;
 }
 

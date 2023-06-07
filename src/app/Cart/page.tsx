@@ -14,7 +14,7 @@ import CheckOut from "../components/CheckOut";
 import  { AddLessBtns } from "../components/Shared/AddLessBtns";
 import { P } from "drizzle-orm/db.d-89e25221";
 
-import * as cartService from '../lib/cartService'
+
 
 const builder = imageUrlBuilder(client);
 

@@ -1,12 +1,15 @@
-// "use client";
+ "use client";
 import Image from "next/image";
+import { register } from 'swiper/element/bundle';
 
-// import { Swiper, SwiperSlide } from "swiper/react";
-// import "swiper/css";
+ import { Swiper, SwiperSlide } from "swiper/react";
+ import "swiper/css";
+ import "swiper/css/navigation";
 import Wrapper from "./Shared/Wrapper";
 import { getProductData } from "../lib/productservice";
 import { IProduct } from "../lib/product";
 import ProductImage from "./ProductImage";
+import { Navigation } from "swiper";
 
 const Eproduct = async () => {
   const products: IProduct[] = await getProductData();
@@ -19,13 +22,13 @@ const Eproduct = async () => {
         </div>
         <div className="flex gap-4 sm:mt-10 mt-5">
       
-        {/* <Swiper slidesPerView={3} className="sm:mt-10 mt-5"> */}
+        <Swiper slidesPerView={3}>
           {products.map((p) => (
-            // <SwiperSlide key={p._id}>
+             <SwiperSlide key={p._id}>
               <ProductImage product={p} key={p._id}/>
-            // </SwiperSlide>
+             </SwiperSlide>
           ))}
-        {/* </Swiper> */}
+        </Swiper>
         </div>
       </Wrapper>
       </>

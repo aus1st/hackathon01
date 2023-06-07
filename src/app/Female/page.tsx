@@ -13,7 +13,7 @@ const page = async () => {
       {/* <div className="flex sm:flex-row flex-col gap-x-3 flex-wrap"> */}
       <div className="grid grid-cols-1 sm:grid-cols-4 sm:justify-center gap-x-3 justify-center gap-y-3">
         {data.map((p) => (
-          <Link href={`/Female/${p._id}`} key={p._id}>
+          <Link href={`/product/${p._id}`} key={p._id}>
             <ProductImage product={p}></ProductImage>
           </Link>
         ))}
