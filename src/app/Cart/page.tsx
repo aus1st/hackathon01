@@ -73,7 +73,14 @@ const Page = async () => {
   return qty;
   }
  calculateQty();
-
+  const productsToSend: IProduct[] = cartDtls.map(p=> 
+return (
+  productsToSend.push({
+    _id: 
+  })
+)
+  
+  )
   const orderDtls = cartDtls?.map((c) => {
   //  const orderDtls = cartItems.map((c) => {
     const x = products.find((p) => p._id == c.product_id);
@@ -106,7 +113,7 @@ const Page = async () => {
       <div className="flex sm:flex-row mt-5 flex-col gap-5 justify-between">
         <div className="flex flex-col gap-x-25 gap-y-5">{orderDtls}</div>
         <div>
-        <CheckOut qty={qty} total={total} />
+        <CheckOut products={qty} total={total} />
         </div>
       </div>
     </Wrapper>

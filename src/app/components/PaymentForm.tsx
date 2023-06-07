@@ -4,7 +4,7 @@ import React from 'react'
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js'
 import Wrapper from './Shared/Wrapper';
 
-const PaymentForm = async () => {
+const PaymentForm = () => {
 
     const stripe = useStripe();
     const elements = useElements();
@@ -15,6 +15,7 @@ const PaymentForm = async () => {
         const cardElement = elements?.getElement('card');
         console.log(cardElement)
         try {
+            console.log('reached inside try')
             if(!stripe || !cardElement) return null;
 
             const res = await fetch('/api/create-payment-intent', {
@@ -23,12 +24,11 @@ const PaymentForm = async () => {
                     data: {amount: 89}
                 })
         })
-
-        const clientSecret = await res.json();
-
+        const {data} =  await res.json();
+        const clientSecret =  data;
+        //console.log(clientSecret);
         await stripe?.confirmCardPayment(clientSecret, {
-            payment_method: {card: cardElement},
-            
+            payment_method: {card: cardElement},            
         });
 
         } catch (error) {
@@ -43,8 +43,11 @@ const PaymentForm = async () => {
         <Wrapper>
              <div>
       <form onSubmit={onSubmit}>
-        <CardElement/>
+        <CardElement className='max-w-md'/>
+       
+       <div className='mt-10'>
         <button className='p-3 rounded-md bg-blue-700 text-white' type='submit'>Submit</button>
+        </div> 
       </form>
       </div>
       </Wrapper>
