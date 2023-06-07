@@ -111,6 +111,7 @@ const Page = async () => {
           <AddLessBtns price={x?.price} title={x?.title} product_id={x?._id as string} _qty={c.quantity} ID={c.id}/>
         </div>
         </div>
+        <div className="border-gray-200 border-t w-full h-2 mt-2"></div> 
       </div>
     );
   });

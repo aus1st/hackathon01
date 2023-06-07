@@ -120,7 +120,7 @@ if(title) {
    
     // <div className="flex gap-x-3 mt-10 items-center">
     <div className="flex sm:flex-row flex-col space-y-3 justify-around gap-x-12 w-full">
-      <div className="flex flex-col gap-y-10 justify-between">
+      <div className="flex flex-col w-full gap-y-10 justify-between">
        
        <div>
         <h2 className="text-lg font-bold">{title}</h2>
@@ -132,7 +132,7 @@ if(title) {
       </div>
       
 
-      <div className="flex sm:flex-col flex-row items-center justify-around sm:gap-y-36">
+      <div className="flex sm:flex-col w-full flex-row items-center justify-around sm:gap-y-36">
         <div>
         <button onClick={()=>handleDelete()} className="bg-white rounded-full p-2">
           <svg
@@ -173,7 +173,9 @@ if(title) {
     <div>
       {/* <CheckOut qty={qty} total={total}/> */}
     </div>
-    <Toaster/>  
+    <Toaster/> 
+
+   
     </div>
   );
 } else {
