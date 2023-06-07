@@ -22,7 +22,7 @@ const Eproduct = async () => {
         </div>
         <div className="flex gap-4 sm:mt-10 mt-5">
       
-        <Swiper slidesPerView={3}>
+        <Swiper slidesPerView={3} className="sm:mt-10 mt-5">
           {products.map((p) => (
              <SwiperSlide key={p._id}>
               <ProductImage product={p} key={p._id}/>
