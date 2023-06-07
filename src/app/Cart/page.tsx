@@ -1,5 +1,3 @@
-
-
 import Image from "next/image";
 
 import Wrapper from "../components/Shared/Wrapper";
@@ -30,7 +28,7 @@ const urlFor = (source: any) => {
 const getcartData = async () => {
   const cookie = cookies();
   const user_id = cookie.get('user_id')?.value as string;
-  // console.log(user_id)
+  console.log(user_id)
   if (user_id) {
     try {
       console.log("calling api");
@@ -51,7 +49,9 @@ const getcartData = async () => {
 const Page = async () => {
 
   const products: IProduct[] = await getAllProducts();
+  
   const cartDtls:ICart[] = await getcartData();
+  console.log(cartDtls.length)
   let total = 0;
   let qty =0;
 
@@ -68,19 +68,28 @@ const Page = async () => {
     return total;
   }
    amount();
+
   const calculateQty = () => { 
   cartDtls.forEach(q=> qty+=q.quantity)
   return qty;
   }
  calculateQty();
-  const productsToSend: IProduct[] = cartDtls.map(p=> 
-return (
-  productsToSend.push({
-    _id: 
-  })
-)
+
+  let productsToSend: IProduct[] =[];
   
-  )
+  cartDtls.map(p=> {
+  const q = products.find(x => x._id == p.product_id)
+  productsToSend.push({
+    _id: p.product_id,
+    price: p.price,
+    image: urlFor(q?.image).url(),
+    title: q?.title!,
+    description: q?.description!,
+    details: q?.details!,
+    quantity: p.quantity
+  })
+  })
+  console.log(productsToSend.length)
   const orderDtls = cartDtls?.map((c) => {
   //  const orderDtls = cartItems.map((c) => {
     const x = products.find((p) => p._id == c.product_id);
@@ -113,7 +122,7 @@ return (
       <div className="flex sm:flex-row mt-5 flex-col gap-5 justify-between">
         <div className="flex flex-col gap-x-25 gap-y-5">{orderDtls}</div>
         <div>
-        <CheckOut products={qty} total={total} />
+        <CheckOut products={productsToSend} />
         </div>
       </div>
     </Wrapper>

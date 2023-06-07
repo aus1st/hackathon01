@@ -37,7 +37,7 @@ export async function POST(request: NextRequest) {
                 product_data: {
                     name: item.title,
                     //description: item.description,
-                    //images: [item.image],
+                    images: [item.image],
 
                 },
                 unit_amount: Number(item.price * 100)
