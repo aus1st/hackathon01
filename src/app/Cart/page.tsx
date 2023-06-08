@@ -12,8 +12,7 @@ import { IProduct } from "../lib/product";
 
 import CheckOut from "../components/CheckOut";
 import  { AddLessBtns } from "../components/Shared/AddLessBtns";
-import { P } from "drizzle-orm/db.d-89e25221";
-import * as productService from '../lib/productservice'
+
 import { FaCartPlus } from "react-icons/fa";
 
 
@@ -24,15 +23,17 @@ const urlFor = (source: any) => {
 };
 
 
-export const getcartData = async () => {
+const getcartData = async () => {
   const cookie = cookies();
   const user_id = cookie.get('user_id')?.value as string;
   console.log('user id from servie ',user_id)
   if (user_id) {
     try {
+      const url = process.env.NODE_ENV === 'development' ? 'http://localhost:3000' : 'https://hackathon01-aus1st.vercel.app'
+
       console.log("calling api");
       const data = await fetch(
-        `http://localhost:3000/api/cart?user_id=${user_id}`
+        `${url}/api/cart?user_id=${user_id}`
       );
            
       return await data.json();
@@ -52,7 +53,7 @@ const Page = async () => {
   const products: IProduct[] = await getAllProducts();
   
   const cartDtls:ICart[] = await getcartData();
-  console.log(cartDtls.length)
+  //console.log(cartDtls.length)
   let total = 0;
   let qty =0;
 

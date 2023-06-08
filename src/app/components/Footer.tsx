@@ -68,7 +68,7 @@ const Footer = () => {
 
 {/* copyright */}
 <div className='grid sm:grid-cols-3 grid-cols-1 border-t text-center border-black mt-10 p-4'>
-<div>Copyright © 2022 Dine Market</div>
+<div>Copyright © 2023 Dine Market</div>
 <div>Design by. <b>Weird Design Studio</b></div>
 <div>Code by. <b>aus1st on github</b></div>
 </div>

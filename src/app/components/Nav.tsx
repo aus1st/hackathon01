@@ -17,8 +17,12 @@ export const getcartData = async () => {
   if (user_id) {
     try {
       console.log("calling api");
+
+      const url = process.env.NODE_ENV === 'development' ? 'http://localhost:3000' : 'https://hackathon01-aus1st.vercel.app'
+
+      console.log("calling api");
       const data = await fetch(
-        `http://localhost:3000/api/cart?user_id=${user_id}`
+        `${url}/api/cart?user_id=${user_id}`
       );
            
       return await data.json();

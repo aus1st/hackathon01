@@ -16,7 +16,7 @@ import CheckOutButton from "./CheckOutButton";
  
 
 
-const CheckOut:FC<{products: IProduct[]}> =  ({products}) => {
+export const CheckOut:FC<{products: IProduct[]}> =  ({products}) => {
 
 let total = 0;
 let qty = 0;
