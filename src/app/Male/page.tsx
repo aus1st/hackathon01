@@ -10,14 +10,13 @@ const page = async () => {
     
     return (
         <Wrapper>
- <div className="grid grid-cols-4 gap-x-3 justify-center gap-y-3">
+      <div className="grid grid-cols-1 sm:grid-cols-5 sm:justify-center gap-x-3 justify-center gap-y-3">
       {        
                  data.map(p=>(
                   <Link href={`/product/${p._id}`} key={p._id}>
                 <ProductImage product={p} key={p._id}></ProductImage>
                 </Link>
             ))
-        
       }
     </div>
     </Wrapper>

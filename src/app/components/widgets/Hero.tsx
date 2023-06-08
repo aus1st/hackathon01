@@ -6,10 +6,12 @@ import feature1 from "../../assets/images/Featured1.webp";
 import feature2 from "../../assets/images/Featured2.webp";
 import feature3 from "../../assets/images/Featured3.webp";
 import feature4 from "../../assets/images/Featured4.webp";
+import Button from "../Shared/Button";
+import Link from "next/link";
 
 const Hero = () => {
   const heading = "An Industrial Take \non Streetware";
-  const p =
+  const subHeading =
     "Anyone can beat you but no one can beat your \noutfit as long as you wear Dine outfits.";
   return (
     <section>
@@ -24,11 +26,12 @@ const Hero = () => {
               {heading}
             </h1>
 
-            <p className="sm:mt-16 mt-10 sm:font-medium text-sm text-gray-500 sm:whitespace-pre-line">
-              {p}
+            <p className="sm:mt-16 mt-10 sm:text-lg text-md text-gray-500 sm:whitespace-pre-line">
+              {subHeading}
             </p>
-
-            <button className="bg-black text-white flex gap-2 mt-10 sm:py-5 sm:px-5 py-3 px-6 items-center p-3 sm:text-lg text-sm font-semibold">
+            
+            <Link className="bg-black text-white flex gap-2 mt-10 sm:py-5 sm:px-3 sm:max-w-[300px] max-w-[200px] justify-center items-center p-3 sm:text-lg text-sm font-semibold" href={"/Products"}>
+         
               <svg
                 stroke="currentColor"
                 fill="none"
@@ -54,8 +57,8 @@ const Hero = () => {
                 ></path>
               </svg>
               Start Shopping
-            </button>
-
+         
+            </Link>
             {/* features  */}
             {/* <div className="flex sm:flex-row flex-wrap gap-8 sm:mt-40 mt-20"> */}
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-8 sm:mt-40 mt-10">

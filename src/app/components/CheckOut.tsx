@@ -26,7 +26,7 @@ products.forEach(t=>{
   qty+= t.quantity!;
 })
 
-console.log(products[0].price)
+//console.log(products[0].price)
   return (
     <div className="bg-gray-50 p-8">
       <div>

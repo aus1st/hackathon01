@@ -5,6 +5,8 @@ import { useState } from "react";
 import { set } from "sanity";
 import toast, {Toaster} from 'react-hot-toast'
 
+import { useRouter } from "next/navigation";
+
 const sizes = ["XS", "S", "M", "L", "XL"];
 
 const SizeQty:FC<{product_id: string, price: number}> = ({product_id,price}) => {
@@ -21,7 +23,7 @@ const SizeQty:FC<{product_id: string, price: number}> = ({product_id,price}) => 
 
   const [qty, setQty] = useState(1);
   const [size, setSize] = useState("");
-
+  const {refresh} = useRouter();
   const handleSubmit = async ()=>{
    
    try {
@@ -93,7 +95,7 @@ const selectSize = (b:string) => {
       </div>
 
        <div className="flex mt-10 gap-x-3 items-center">
-        <button onClick={()=>{handleSubmit(), notify('Product Added')}} className="bg-black text-white sm:py-2  sm:px-5 py-1 px-4">🛒 Add to Card</button>
+        <button onClick={()=>{handleSubmit(), notify('Product Added'), refresh()}} className="bg-black text-white sm:py-2  sm:px-5 py-1 px-4">🛒 Add to Card</button>
         <h3 className="sm:text-3xl text-xl font-bold">$ {price}</h3>
         </div>   
         <Toaster/>  

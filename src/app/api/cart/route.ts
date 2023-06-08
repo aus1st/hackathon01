@@ -23,7 +23,7 @@ export async function GET(requet: NextRequest) {
       const res = await db
         .select()
         .from(cartTable)
-        .where(eq(cartTable.user_id, user_id as string));
+        .where(eq(cartTable.user_id, user_id as string)).orderBy(cartTable.id);
       console.log(res)
       
       return NextResponse.json(res);

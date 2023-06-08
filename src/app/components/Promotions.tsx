@@ -23,7 +23,7 @@ const Promotions = () => {
             {/* card1 */}
             <div className="bg-gray-300 flex sm:flex-row flex-col justify-center items-center">
               <div className="text-center">
-                <h3 className="text-3xl mt-2 font-bold">
+                <h3 className="text-xl sm:text-3xl mt-2 font-bold">
                   GET UPTO <b>60%</b>
                 </h3>
                 {/* <span className="text-5xl font-bold">60%</span> */}

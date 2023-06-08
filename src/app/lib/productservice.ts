@@ -3,6 +3,7 @@ import {client} from '../../../sanity/lib/client'
 import imageUrlBuilder from '@sanity/image-url'
 import { IProduct } from './product';
 import { title } from 'process';
+import { cookies } from 'next/dist/client/components/headers';
 
 const builder = imageUrlBuilder(client);
 
@@ -20,6 +21,8 @@ export const getProductData = async ()=>{
     // }`);
     return res;
 }
+
+
 
 export const productData = async ()=>{
     const res: IProduct[] = await getProductData();

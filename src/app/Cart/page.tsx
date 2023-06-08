@@ -13,7 +13,8 @@ import { IProduct } from "../lib/product";
 import CheckOut from "../components/CheckOut";
 import  { AddLessBtns } from "../components/Shared/AddLessBtns";
 import { P } from "drizzle-orm/db.d-89e25221";
-
+import * as productService from '../lib/productservice'
+import { FaCartPlus } from "react-icons/fa";
 
 
 const builder = imageUrlBuilder(client);
@@ -23,12 +24,10 @@ const urlFor = (source: any) => {
 };
 
 
-
-
-const getcartData = async () => {
+export const getcartData = async () => {
   const cookie = cookies();
   const user_id = cookie.get('user_id')?.value as string;
-  console.log(user_id)
+  console.log('user id from servie ',user_id)
   if (user_id) {
     try {
       console.log("calling api");
@@ -43,6 +42,8 @@ const getcartData = async () => {
     }
   }
 };
+
+
 
 
 
@@ -116,7 +117,24 @@ const Page = async () => {
     );
   });
 
+  if(!orderDtls) {
+    return (
+      <Wrapper>
+      <div className="flex sm:flex-row flex-col items-center justify-center">
+        <div className="fle-1">
+       <h2 className="text-2xl font-bold"> Your cart is Empty</h2> 
+       </div>
+      <div className="flex-1">
+      <FaCartPlus className="w-12 h-auto"/>
+      </div>
+    </div>
+    </Wrapper>
+    )
+  }
+
+
   return (
+    
     <Wrapper>
      
       <h1 className="text-2xl font-bold text-black">Shopping Cart</h1>
