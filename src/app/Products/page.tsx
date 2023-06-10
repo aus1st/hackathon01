@@ -10,7 +10,7 @@ const page = async () => {
     
     return (
         <Wrapper>
-    <div className='grid grid-cols-1 sm:grid-cols-5 sm:justify-center gap-x-3 justify-center gap-y-3'>
+      <div className="grid sm:grid-cols-[repeat(3,auto)] grid-cols-[repeat(1,auto)] gap-x-5 justify-center gap-y-3">
       {        
 
                  data.map(p=>(

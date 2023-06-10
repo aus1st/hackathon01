@@ -16,7 +16,7 @@ const SwipeProducts:FC<{products: IProduct[]}> = ({products}) => {
 
       <Wrapper>
     <div>
-        <div className="text-center mt-36">
+        <div className="text-center mt-5">
           <p className="text-blue-700 font-bold">PRODUCTS</p>
           <h1 className="text-3xl font-bold">Check What We Have</h1>
         </div>

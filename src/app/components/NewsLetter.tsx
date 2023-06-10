@@ -8,13 +8,13 @@ const NewsLetter = () => {
     <div className='relative'>
     
     <h2 className='text-4xl sm:mt-[230px] mt-[100px] font-bold text-center'>Subscribe Our Newsletter</h2>
-    <p className='text-gray-400 text-lg text-center mt-4'>Get the latest information and promo offers directly
+    <p className='text-gray-600 text-lg text-center mt-4'>Get the latest information and promo offers directly
     <div className='flex sm:flex-row flex-col items-center justify-center gap-5 mt-3'>
     <form>
-        <input type="text" placeholder='input email address' className=' border border-black p-1 sm:px-14 px-8' />
+        <input type="text" placeholder='input email address' className='border border-black p-1 sm:px-14 px-8' />
        
     </form>
-    <button className='bg-black text-white px-3 py-1 font-semibold'>Get Started</button>
+    <button className='bg-black text-white px-3 py-1 rounded-md '>Get Started</button>
     </div>
 
 </p>

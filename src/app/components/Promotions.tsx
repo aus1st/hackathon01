@@ -12,7 +12,7 @@ const Promotions = () => {
       <Wrapper>
         <div className="text-center">
           <p className="text-blue-700 font-medium mt-20">PROMOTIONS</p>
-          <h3 className="sm:text-3xl text-2xl font-bold mt-2">Our Promotions Events</h3>
+          <h3 className="text-3xl font-bold mt-2">Our Promotions Events</h3>
         </div>
 
         {/* Promotions */}
@@ -23,13 +23,13 @@ const Promotions = () => {
             {/* card1 */}
             <div className="bg-gray-300 flex sm:flex-row flex-col justify-center items-center">
               <div className="text-center">
-                <h3 className="text-xl sm:text-3xl mt-2 font-bold">
+                <h3 className="text-3xl mt-2 font-bold">
                   GET UPTO <b>60%</b>
                 </h3>
                 {/* <span className="text-5xl font-bold">60%</span> */}
                 <p className="mt-1 text-lg">For the summer season</p>
               </div>
-              <div className="sm:scale-100  scale-75">
+              <div className="">
                 <Image src={event1} alt="promotion image"></Image>
               </div>
             </div>
@@ -78,7 +78,7 @@ const Promotions = () => {
                   <span className="font-bold">$190.00</span>
                 </div>
               </div>
-              <div className="sm:ml-0 ml-10">
+              <div className="sm:ml-0 ml-5">
               <Image src={event3} alt="promotion3 image"></Image>
               </div>
             </div>

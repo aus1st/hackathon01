@@ -30,7 +30,7 @@ const Hero = () => {
               {subHeading}
             </p>
             
-            <Link className="bg-black text-white flex gap-2 mt-10 sm:py-5 sm:px-3 sm:max-w-[300px] max-w-[200px] justify-center items-center p-3 sm:text-lg text-sm font-semibold" href={"/Products"}>
+            <Link className="bg-black text-white flex gap-2 mt-10 sm:py-5 sm:px-3 sm:max-w-[300px] max-w-[250px] justify-center items-center p-3 sm:text-lg text-sm font-semibold" href={"/Products"}>
          
               <svg
                 stroke="currentColor"

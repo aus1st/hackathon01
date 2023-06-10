@@ -14,7 +14,7 @@ const Footer = () => {
         <div className='flex sm:flex-row flex-col sm:align-center gap-x-24 mt-20 text-gray-500'>
             <div className='sm:w-4/12 w-full'>
             <Image src={Logo} width={155} height={35} alt="logo"></Image>
-            <p className='mt-10 text-gray-500'>Small, artisan label that offers a thoughtfully curated collection of high quality everyday essentials made.</p>
+            <p className='mt-10 text-gray-500 sm:justify-start  text-justify'>Small, artisan label that offers a thoughtfully curated collection of high quality everyday essentials made.</p>
 
             <ul className='flex gap-x-3 mt-5 font-black'>
                 <li className='p-3 rounded-md bg-gray-100'>
@@ -32,7 +32,7 @@ const Footer = () => {
             </div>
 
 
-            <div className='sm:w-2/12 w-full '>
+            <div className='sm:w-2/12 w-full mt-5 '>
                <h4 className='font-bold text-lg '>Company</h4> 
                 <ul className='space-y-3 font-medium mt-3'>
                     <li>About</li>
@@ -43,7 +43,7 @@ const Footer = () => {
                 </ul>
 
             </div>
-            <div className='sm:w-2/12 w-full'> 
+            <div className='sm:w-2/12 w-full mt-3'> 
             <h4 className='font-bold text-lg '>Support</h4> 
                 <ul className='space-y-3 font-medium mt-3'>
                     <li>Support Carrer</li>

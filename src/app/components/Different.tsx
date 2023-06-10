@@ -29,14 +29,15 @@ const Different = () => {
       <Wrapper>
       <div className="flex sm:flex-row flex-col gap-20 mt-10 items-center">
         {/* left */}
-        <div className="relative grid grid-cols-2 sm:gap-10 gap-10  sm:w-5/12 w-full gap-y-10 sm:gap-y-16 ">
+        <div className="relative grid grid-cols-2 sm:gap-12 gap-10 content-center  sm:w-5/12 w-full gap-y-10 sm:gap-y-16 ">
           {data.map((d) => (
             <div key={d.heading}>
-              <h3 className="font-bold" key={d.heading}>
+              <h3 className="sm:text-xl text-md font-semibold" key={d.heading}>
                 {d.heading}
               </h3>
-              <span>{d.content}</span>
-              
+            <div className="mt-5">
+              <span >{d.content}</span>
+              </div>
             </div>
             
           ))}
@@ -49,10 +50,10 @@ const Different = () => {
         {/* right */}
         <div className="flex gap-8 sm:w-7/12 w-full sm:flex-row flex-col items-center">
           {/* image */}
-          <Image src={featureImg} width={350} height={300} alt="feature Image"></Image>
+          <Image src={featureImg} width={350} height={300} alt="feature Image" className="sm:w-[430px] sm:h-[380px] w-[330px] h-[360px]"></Image>
           {/* content */}
           <div>
-            <p>
+            <p className="text-justify">
               Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vitae
               culpa autem officia repellat consectetur voluptates facilis, quia
               dolorum numquam praesentium quis distinctio deserunt eius pariatur
