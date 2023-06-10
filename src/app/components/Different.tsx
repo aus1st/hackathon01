@@ -9,13 +9,14 @@ const data = [
     content: "Lorem ipsum dolor sit amt, consectetur adipiscing elit.",
   },
   {
-    heading: "Modern Fashion Design",
-    content: "Lorem ipsum dolor sit amt, consectetur adipiscing elit.",
-  },
-  {
     heading: "100% Handmade Products",
     content: "Lorem ipsum dolor sit amt, consectetur adipiscing elit.",
   },
+  {
+    heading: "Modern Fashion Design",
+    content: "Lorem ipsum dolor sit amt, consectetur adipiscing elit.",
+  },
+  
   {
     heading: "Discount for Bulk Orders",
     content: "Lorem ipsum dolor sit amt, consectetur adipiscing elit.",

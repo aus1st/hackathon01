@@ -14,11 +14,11 @@ const NewsLetter = () => {
         <input type="text" placeholder='input email address' className='border border-black p-1 sm:px-14 px-8' />
        
     </form>
-    <button className='bg-black text-white px-3 py-1 rounded-md '>Get Started</button>
+    <button className='bg-black text-white px-4  sm:px-4 py-2 sm:py-1 '>Get Started</button>
     </div>
 
 </p>
-<h3 className='absolute sm:text-[130px] text-[68px] sm:right-[20%] right-[-25px] text-gray-100 leading-[100px] whitespace-pre-line -z-10
+<h3 className='absolute sm:text-[130px] text-[55px] sm:right-[20%] right-[-1px] text-gray-100 leading-[100px] whitespace-pre-line -z-10
  -top-1 font-bold'>Newsletter</h3>
   
     </div>
